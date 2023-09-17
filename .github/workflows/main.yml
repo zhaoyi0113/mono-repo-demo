@@ -20,4 +20,5 @@ jobs:
       - run: node --version
       - run: yarn install
       - run: cd package-based
-      - run: yarn install && npx nx affected -t build --base=main
+      - run: ls
+      - run: npx nx affected -t build --base=main
