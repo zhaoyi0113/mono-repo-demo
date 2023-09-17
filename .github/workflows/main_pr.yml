@@ -31,5 +31,5 @@ jobs:
          ls
          npx nx affected -t build --base=origin/$GITHUB_BASE_REF
          echo "AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)"
-         echo "AFFECTED_APPS=$AFFECTED_APPS"
+         echo "xxxx $AFFECTED_APPS"
 
