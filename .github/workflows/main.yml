@@ -19,6 +19,8 @@ jobs:
       - run: |
          yarn --version
          node --version
+         echo $NX_BASE
+         echo $NX_HEAD
          ls
          cd package-based
          yarn install
