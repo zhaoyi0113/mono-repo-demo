@@ -18,8 +18,8 @@ jobs:
           node-version: '18'
       - run: yarn --version
       - run: node --version
-      - run: yarn install
       - run: ls
       - run: cd package-based
+      - run: yarn install
       - run: ls
       - run: npx nx affected -t build --base=main
