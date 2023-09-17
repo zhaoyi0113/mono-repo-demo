@@ -11,6 +11,8 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
+    outputs:
+      affected: ${{ steps.set-output.outputs.affected }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -30,6 +32,30 @@ jobs:
          yarn install
          ls
          npx nx affected -t build --base=origin/$GITHUB_BASE_REF
-         echo "AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)"
-         echo "xxxx $AFFECTED_APPS"
+         echo "AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)" >> $GITHUB_ENV
+         echo "xxxx env.AFFECTED_APPS"
 
+      - name: set output
+        run: |
+         echo "::set-output name=affected::${{ env.AFFECTED_APPS }}"
+
+  is_even_buid:
+    runs-on: ubuntu-latest
+    needs: main
+    if: contains(needs.main.outputs.affected, 'is-event')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        run: |
+          ls
+      
+  
+  is_odd_buid:
+    runs-on: ubuntu-latest
+    needs: main
+    if: contains(needs.main.outputs.affected, 'is-odd')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        run: |
+          ls
