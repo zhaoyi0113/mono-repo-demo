@@ -26,4 +26,4 @@ jobs:
          cd package-based
          yarn install
          ls
-         npx nx affected -t build --base=main
+         npx nx affected -t build --base=origin/main
