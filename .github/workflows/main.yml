@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: '18'
       - run: |
-        yarn --version
-        node --version
-        ls
-        cd package-based
-        yarn install
-        ls
-        npx nx affected -t build --base=main
+         yarn --version
+         node --version
+         ls
+         cd package-based
+         yarn install
+         ls
+         npx nx affected -t build --base=main
