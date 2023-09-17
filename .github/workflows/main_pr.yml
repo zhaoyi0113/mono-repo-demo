@@ -4,7 +4,7 @@ on:
     types:
       - opened
       - closed
-      - edited
+      - synchronize
     branches:
       - main
 
