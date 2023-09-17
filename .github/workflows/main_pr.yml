@@ -12,7 +12,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     outputs:
-      affected: ${{ steps.set-output.outputs.affected }}
+      affected: ${{ steps.build.outputs.AFFECTED_APPS }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -21,7 +21,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: |
+      - id: build
+        run: |
          env
          yarn --version
          node --version
@@ -32,12 +33,7 @@ jobs:
          yarn install
          ls
          npx nx affected -t build --base=origin/$GITHUB_BASE_REF
-         echo "AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)" >> $GITHUB_ENV
-         echo "xxxx ${{ env.AFFECTED_APPS }}"
-
-      - name: set output
-        run: |
-         echo "::set-output name=affected::${{ env.AFFECTED_APPS }}"
+         echo "AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)" >> $GITHUB_OUTPUT
 
   is_even_buid:
     runs-on: ubuntu-latest
