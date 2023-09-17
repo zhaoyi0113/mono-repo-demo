@@ -46,7 +46,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        run: |
+      
+      - run: |
           ls
       
   
@@ -57,5 +58,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        run: |
+
+      - run: |
           ls
