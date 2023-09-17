@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: '18'
       - run: |
+         env
          yarn --version
          node --version
          echo $NX_BASE
