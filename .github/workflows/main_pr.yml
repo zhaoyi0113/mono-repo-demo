@@ -15,7 +15,7 @@ jobs:
       affected: ${{ steps.affectedApps.outputs.AFFECTED_APPS }}
     steps:
       - uses: actions/checkout@v3
-      - uses: ./workflows/affected.yml
+      - uses: ./.github/workflows/common/affected.yml
   
   is_even_buid:
     runs-on: ubuntu-latest
