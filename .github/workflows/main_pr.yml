@@ -10,12 +10,11 @@ on:
 
 jobs:
   callAffectedApps:
+    uses: actions/checkout@v3
     uses: ./.github/workflows/affected.yml
     runs-on: ubuntu-latest
     outputs:
       affected: ${{ steps.affectedApps.outputs.AFFECTED_APPS }}
-    steps:
-      - uses: actions/checkout@v3
   
   is_even_buid:
     runs-on: ubuntu-latest
