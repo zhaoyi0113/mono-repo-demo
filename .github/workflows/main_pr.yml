@@ -9,36 +9,18 @@ on:
       - main
 
 jobs:
-  main:
+  callAffectedApps:
     runs-on: ubuntu-latest
     outputs:
-      affected: ${{ steps.build.outputs.AFFECTED_APPS }}
+      affected: ${{ steps.affectedApps.outputs.AFFECTED_APPS }}
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: nrwl/nx-set-shas@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - id: build
-        run: |
-         env
-         yarn --version
-         node --version
-         echo $NX_BASE
-         echo $NX_HEAD
-         ls
-         cd package-based
-         yarn install
-         ls
-         npx nx affected -t build --base=origin/$GITHUB_BASE_REF
-         echo "AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)" >> $GITHUB_OUTPUT
-
+      - uses: ./.github/workflows/common/affected.yml
+  
   is_even_buid:
     runs-on: ubuntu-latest
-    needs: main
-    if: contains(needs.main.outputs.affected, 'is-event')
+    needs: callAffectedApps
+    if: contains(needs.callAffectedApps.outputs.affected, 'is-event')
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -48,8 +30,8 @@ jobs:
   
   is_odd_buid:
     runs-on: ubuntu-latest
-    needs: main
-    if: contains(needs.main.outputs.affected, 'is-odd')
+    needs: callAffectedApps
+    if: contains(needs.callAffectedApps.outputs.affected, 'is-odd')
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
