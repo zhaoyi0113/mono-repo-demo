@@ -45,7 +45,6 @@ jobs:
       
       - run: |
           ls
-      
   
   is_odd_buid:
     runs-on: ubuntu-latest

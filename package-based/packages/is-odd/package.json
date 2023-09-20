@@ -1,13 +1,13 @@
 {
   "name": "is-odd",
   "version": "0.0.0",
-  "main": "dist/index.js",
   "devDependencies": {},
   "scripts": {
     "build": "tsc index.ts --outDir dist",
     "echo": "echo is-odd $1"
   },
   "dependencies": {
-    "is-even": "*"
+    "is-even": "*",
+    "uuid": "^9.0.1"
   }
 }
