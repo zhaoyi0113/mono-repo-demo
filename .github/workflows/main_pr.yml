@@ -11,8 +11,6 @@ on:
 jobs:
   callAffectedApps:
     uses: ./.github/workflows/affected.yml
-    outputs:
-      affected: ${{ steps.affectedApps.outputs.AFFECTED_APPS }}
   
   is_even_buid:
     runs-on: ubuntu-latest
