@@ -4,7 +4,7 @@ jobs:
   affectedApps:
     runs-on: ubuntu-latest
     outputs:
-      affected: ${{ steps.build.outputs.AFFECTED_APPS }}
+      affected: ${{ steps.affected.outputs.AFFECTED_APPS }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -13,7 +13,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: |
+      - id: affected
+        run: |
           cd package-based
           echo $GITHUB_OUTPUT
           yarn install
