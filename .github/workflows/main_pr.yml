@@ -11,7 +11,6 @@ on:
 jobs:
   callAffectedApps:
     uses: ./.github/workflows/affected.yml
-    runs-on: ubuntu-latest
     outputs:
       affected: ${{ steps.affectedApps.outputs.AFFECTED_APPS }}
   
