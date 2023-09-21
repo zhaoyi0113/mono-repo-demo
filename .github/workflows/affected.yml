@@ -19,5 +19,5 @@ jobs:
           echo $GITHUB_OUTPUT
           yarn install
           # AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)
-          AFFECTED_APPS="is_even b"
+          AFFECTED_APPS="is-even b"
           echo "AFFECTED_APPS=$AFFECTED_APPS" >> $GITHUB_OUTPUT
