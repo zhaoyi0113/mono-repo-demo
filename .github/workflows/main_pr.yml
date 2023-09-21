@@ -15,7 +15,7 @@ jobs:
   is_even_buid:
     runs-on: ubuntu-latest
     needs: callAffectedApps
-    # if: contains(needs.callAffectedApps.outputs.affectedApps, 'is-event')
+    if: contains(needs.callAffectedApps.outputs.affectedApps, 'is-event')
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
