@@ -21,6 +21,6 @@ jobs:
           cd package-based
           echo $GITHUB_OUTPUT
           yarn install
-          # AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)
-          AFFECTED_APPS="is-even"
+          AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)
+          # AFFECTED_APPS="is-even"
           echo "AFFECTED_APPS=$AFFECTED_APPS" >> $GITHUB_OUTPUT
