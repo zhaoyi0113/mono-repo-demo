@@ -1,7 +1,7 @@
 on:
   workflow_call:
     outputs:
-      affectedApps: ${{ needs.affectedApps.outputs.affected }}
+      affectedApps: ${{ jobs.affectedApps.outputs.affected }}
 jobs:
   affectedApps:
     runs-on: ubuntu-latest
