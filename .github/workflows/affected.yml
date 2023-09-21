@@ -15,5 +15,6 @@ jobs:
           node-version: '18'
       - run: |
           cd package-based
+          yarn install
           npx nx show projects --affected --base=origin/$GITHUB_BASE_REF
           echo "AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)" >> $GITHUB_OUTPUT
