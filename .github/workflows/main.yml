@@ -27,7 +27,7 @@ jobs:
          ls
          npx nx run-many -t build
 
-      - uses: SamhammerAG/last-successful-build-action
+      - uses: SamhammerAG/last-successful-build-action@v4
         with:
           branch: main
           workflow: "build"
