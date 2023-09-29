@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@myorg/my-lib": ["libs/my-new-lib/src/index.ts"],
       "integrated/is-even": ["libs/is-even/src/index.ts"],
       "integrated/is-odd": ["libs/is-odd/src/index.ts"]
     }

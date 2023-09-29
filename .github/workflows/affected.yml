@@ -1,0 +1,26 @@
+on:
+  workflow_call:
+    outputs:
+      affectedApps: 
+        value: ${{ jobs.affectedApps.outputs.affected }}
+jobs:
+  affectedApps:
+    runs-on: ubuntu-latest
+    outputs:
+      affected: ${{ steps.affected.outputs.AFFECTED_APPS }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - id: affected
+        run: |
+          cd package-based
+          echo $GITHUB_OUTPUT
+          yarn install
+          AFFECTED_APPS=$(npx nx show projects --affected --base=origin/$GITHUB_BASE_REF)
+          echo AFFECTED_APPS=$AFFECTED_APPS
+          echo "AFFECTED_APPS=${AFFECTED_APPS//$'\n'/ }" >> $GITHUB_OUTPUT

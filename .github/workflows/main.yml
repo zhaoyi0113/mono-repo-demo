@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   main:
@@ -26,4 +25,10 @@ jobs:
          cd package-based
          yarn install
          ls
-         npx nx affected -t build --base=origin/$GITHUB_BASE_REF
+         npx nx run-many -t build
+
+      - uses: SamhammerAG/last-successful-build-action
+        with:
+          branch: main
+          workflow: "build"
+

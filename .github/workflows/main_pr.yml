@@ -1,0 +1,34 @@
+name: CI
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - main
+
+jobs:
+  callAffectedApps:
+    uses: ./.github/workflows/affected.yml
+  
+  is_even_buid:
+    runs-on: ubuntu-latest
+    needs: callAffectedApps
+    if: contains(needs.callAffectedApps.outputs.affectedApps, 'is-even')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - run: |
+          ls
+  
+  is_odd_buid:
+    runs-on: ubuntu-latest
+    needs: callAffectedApps
+    if: contains(needs.callAffectedApps.outputs.affectedApps, 'is-odd')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - run: |
+          ls
