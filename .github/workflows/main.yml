@@ -31,4 +31,5 @@ jobs:
         with:
           branch: main
           workflow: "main"
+          token: "${{ secrets.GITHUB_TOKEN }}"
 
