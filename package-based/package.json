@@ -1,6 +1,6 @@
 {
   "name": "package-based",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "affected": "npx nx affected --target=build --base=main",

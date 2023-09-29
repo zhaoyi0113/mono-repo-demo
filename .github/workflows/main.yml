@@ -27,7 +27,8 @@ jobs:
          ls
          npx nx run-many -t build
 
-      - uses: jpb06/bump-package@latest
+      - uses: SamhammerAG/last-successful-build-action
         with:
-          should-default-to-patch: true
+          branch: main
+          workflow: "build"
 
