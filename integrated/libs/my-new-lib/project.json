@@ -1,0 +1,48 @@
+{
+  "name": "my-new-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/my-new-lib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/my-new-lib",
+        "tsConfig": "libs/my-new-lib/tsconfig.lib.json",
+        "packageJson": "libs/my-new-lib/package.json",
+        "main": "libs/my-new-lib/src/index.ts",
+        "assets": ["libs/my-new-lib/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs my-new-lib {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/my-new-lib/**/*.ts",
+          "libs/my-new-lib/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/my-new-lib/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
