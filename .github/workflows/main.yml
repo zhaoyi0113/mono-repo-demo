@@ -28,8 +28,12 @@ jobs:
          npx nx run-many -t build
 
       - uses: SamhammerAG/last-successful-build-action@v4
+        id: last-success
         with:
           branch: main
           workflow: "main"
           token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - run: |
+          echo ${{ steps.last-success.outputs.sha }}
 
