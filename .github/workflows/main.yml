@@ -36,4 +36,9 @@ jobs:
 
       - run: |
           echo ${{ steps.last-success.outputs.sha }}
-
+          cd package-based
+          npm version patch
+          git status
+          git add package.json; git commit -m'bump version'
+          cat package.json
+          git push
