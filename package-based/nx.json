@@ -34,11 +34,8 @@
       ],
       "options": {
         "jestConfig": "jest.config.ts",
-        "passWithNoTests": true,
         "codeCoverage": true,
-        "coverageReporters": [
-          "lcov"
-        ]
+        "passWithNoTests": true
       }
     }
   },
