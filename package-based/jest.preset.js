@@ -7,6 +7,8 @@ module.exports = {
   testEnvironment: 'node',
   testEnvironmentOptions: { customExportConditions: ['node', 'require', 'default'] },
   testTimeout: 5000,
+  coverageReporters: 'lcov',
+  coverageDirectory: 'dist',
   coverageThreshold: {
     global: {
       functions: 90,
@@ -15,27 +17,27 @@ module.exports = {
       branches: 90,
     },
   },
-  reporters: [
-    'default',
-    [
-      '<rootDir>/node_modules/jest-junit',
-      {
-        outputDirectory: 'dist/',
-        outputName: 'report.xml',
-        uniqueOutputName: 'false',
-        titleTemplate: '{classname}-{title}',
-        ancestorSeparator: ' › ',
-        usePathForSuiteName: 'true',
-        includeConsoleOutput: 'true',
-        suiteName: 'Test Report',
-      },
-    ],
-    [
-      '<rootDir>/node_modules/jest-html-reporter',
-      {
-        pageTitle: 'Test Report',
-        'outputPath': 'dist/test-report.html'
-      },
-    ],
-  ],
+  // reporters: [
+  //   'default',
+  //   [
+  //     '<rootDir>/node_modules/jest-junit',
+  //     {
+  //       outputDirectory: 'dist/',
+  //       outputName: 'report.xml',
+  //       uniqueOutputName: 'false',
+  //       titleTemplate: '{classname}-{title}',
+  //       ancestorSeparator: ' › ',
+  //       usePathForSuiteName: 'true',
+  //       includeConsoleOutput: 'true',
+  //       suiteName: 'Test Report',
+  //     },
+  //   ],
+  //   [
+  //     '<rootDir>/node_modules/jest-html-reporter',
+  //     {
+  //       pageTitle: 'Test Report',
+  //       'outputPath': 'dist/test-report.html'
+  //     },
+  //   ],
+  // ],
 };
