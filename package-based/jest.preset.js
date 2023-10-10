@@ -18,7 +18,7 @@ module.exports = {
   reporters: [
     'default',
     [
-      '{workspaceRoot}/node_modules/jest-junit',
+      '<rootDir>/node_modules/jest-junit',
       {
         outputDirectory: 'dist/',
         outputName: 'report.xml',
