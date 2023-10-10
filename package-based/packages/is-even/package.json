@@ -5,6 +5,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "tsc",
+    "test": "jest",
     "echo": "echo is-even"
   }
 }
