@@ -1,4 +1,5 @@
 module.exports = {
+  preset: '@shelf/jest-dynamodb',
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
   resolver: '@nx/jest/plugins/resolver',
   moduleFileExtensions: ['ts', 'js'],

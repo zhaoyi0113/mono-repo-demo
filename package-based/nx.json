@@ -35,7 +35,8 @@
       "options": {
         "jestConfig": "jest.config.ts",
         "codeCoverage": true,
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "verbose": true
       }
     }
   },

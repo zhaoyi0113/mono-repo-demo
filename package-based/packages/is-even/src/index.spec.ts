@@ -5,7 +5,7 @@ describe('test suite', () => {
     expect(isEven(0)).toBeTruthy();
   });
 
-  it('should be able to call', () => {
-    notCoverage();
+  it('should be able to call', async () => {
+    await notCoverage();
   })
 });
