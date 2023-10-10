@@ -2,5 +2,4 @@
 export default {
   displayName: 'is-even',
   preset: '../../jest.preset.js',
-  coverageDirectory: 'dist',
 };

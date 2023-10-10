@@ -15,27 +15,27 @@ module.exports = {
       branches: 90,
     },
   },
-  // reporters: [
-  //   'default',
-  //   [
-  //     '<rootDir>/node_modules/jest-junit',
-  //     {
-  //       outputDirectory: 'dist/',
-  //       outputName: 'report.xml',
-  //       uniqueOutputName: 'false',
-  //       titleTemplate: '{classname}-{title}',
-  //       ancestorSeparator: ' › ',
-  //       usePathForSuiteName: 'true',
-  //       includeConsoleOutput: 'true',
-  //       suiteName: 'Test Report',
-  //     },
-  //   ],
-  //   [
-  //     '<rootDir>/node_modules/jest-html-reporter',
-  //     {
-  //       pageTitle: 'Test Report',
-  //       'outputPath': 'dist/test-report.html'
-  //     },
-  //   ],
-  // ],
+  reporters: [
+    'default',
+    [
+      '../../node_modules/jest-junit',
+      {
+        outputDirectory: 'dist/',
+        outputName: 'report.xml',
+        uniqueOutputName: 'false',
+        titleTemplate: '{classname}-{title}',
+        ancestorSeparator: ' › ',
+        usePathForSuiteName: 'true',
+        includeConsoleOutput: 'true',
+        suiteName: 'Test Report',
+      },
+    ],
+    [
+      '<rootDir>/node_modules/jest-html-reporter',
+      {
+        pageTitle: 'Test Report',
+        'outputPath': 'dist/test-report.html'
+      },
+    ],
+  ],
 };
