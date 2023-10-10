@@ -1,0 +1,17 @@
+module.exports = {
+  extends: '../../../tsconfig.base.json',
+  compilerOptions: {
+    types: ['node', 'jest'],
+    target: 'es2020',
+  },
+  include: [],
+  files: [],
+  references: [
+    {
+      path: './tsconfig.lib.json',
+    },
+    {
+      path: './tsconfig.spec.json',
+    },
+  ],
+};

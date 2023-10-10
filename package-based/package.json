@@ -23,8 +23,10 @@
   "devDependencies": {
     "@nx/js": "16.8.1",
     "nx": "16.8.1",
-    "nx-cloud": "latest",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "jest-html-reporter": "^3.10.1",
+    "jest-junit": "^16.0.0",
+    "jest-sonar-reporter": "^2.0.0"
   },
   "workspaces": [
     "packages/*"
