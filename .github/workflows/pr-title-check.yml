@@ -10,26 +10,35 @@ on:
       - reopened
 
 jobs:
-  check:
+  check-title:
     runs-on: ubuntu-latest
     steps:
-      - uses: Slashgear/action-check-pr-title@v4.3.0
+      - id: check-title
+        uses: Slashgear/action-check-pr-title@v4.3.0
         with:
           regexp: "^(fix|feat|chore|ci|refactor|breaking|revert|perf|docs)\\(.+-\\d+\\).+"
-
-  remove-label:
-    runs-on: ubuntu-latest
-    needs: check
-    steps:
       - uses: actions-ecosystem/action-remove-labels@v1
         with:
           labels: draft
-
-  add-label:
-    runs-on: ubuntu-latest
-    needs: check
-    if: always() && needs.check.result == 'failure'
-    steps:
       - uses: actions-ecosystem/action-add-labels@v1
+        if: always() && steps.check-title.outcome == 'failure'
         with:
           labels: draft
+      
+
+  # remove-label:
+  #   runs-on: ubuntu-latest
+  #   needs: check
+  #   steps:
+  #     - uses: actions-ecosystem/action-remove-labels@v1
+  #       with:
+  #         labels: draft
+
+  # add-label:
+  #   runs-on: ubuntu-latest
+  #   needs: check
+  #   if: always() && needs.check.result == 'failure'
+  #   steps:
+  #     - uses: actions-ecosystem/action-add-labels@v1
+  #       with:
+  #         labels: draft
