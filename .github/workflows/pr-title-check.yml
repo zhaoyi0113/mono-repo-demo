@@ -3,7 +3,7 @@ name: title check
 on:
   pull_request:
     branches: main
-    types: 
+    types:
       - edited
       - opened
       - synchronize
@@ -15,4 +15,4 @@ jobs:
     steps:
       - uses: Slashgear/action-check-pr-title@v4.3.0
         with:
-          regexp: "^(fix|feat|chore|ci|refactor|breaking|revert|perf|docs)\\(.+\\).+"
+          regexp: "^(fix|feat|chore|ci|refactor|breaking|revert|perf|docs)\\(.+-\\d+\\).+"
