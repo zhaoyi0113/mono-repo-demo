@@ -8,8 +8,6 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: thehanimo/pr-title-checker@v1.4.1
+      - uses: Slashgear/action-check-pr-title@v4.3.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          pass_on_octokit_error: false
-          configuration_path: .github/pr-title-checker-config.json 
+          regexp: "^(fix|feat|chore|ci|refactor|breaking|revert|perf|docs)\\(.+\\).+"
