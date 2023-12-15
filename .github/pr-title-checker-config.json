@@ -1,0 +1,10 @@
+{
+  "LABEL": {
+    "name": "draft",
+    "color": "FFFF00"
+  },
+  "CHECKS": {
+    "regexp": "^(fix|feat|chore|ci|refactor|breaking|revert|perf|docs)(.*).+",
+    "regexpFlags": "i"
+  }
+}
