@@ -3,6 +3,11 @@ name: title check
 on:
   pull_request:
     branches: main
+    types: 
+      - edited
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   check:
