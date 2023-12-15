@@ -1,0 +1,33 @@
+name: title check
+
+on:
+  pull_request:
+    branches: main
+    types:
+      - edited
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  # check-title:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - id: check-title
+  #       uses: Slashgear/action-check-pr-title@v4.3.0
+  #       with:
+  #         regexp: "^(fix|feat|chore|ci|refactor|breaking|revert|perf|docs)\\(.+-\\d+\\).+"
+  #     - uses: actions-ecosystem/action-remove-labels@v1
+  #       with:
+  #         labels: draft
+  #     - uses: actions-ecosystem/action-add-labels@v1
+  #       if: always() && steps.check-title.outcome == 'failure'
+  #       with:
+  #         labels: draft
+      
+  check-title1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: thehanimo/pr-title-checker@v1.4.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

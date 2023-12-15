@@ -1,0 +1,12 @@
+{
+  "name": "is-even",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/is-even/jest.config.ts"
+      }
+    }
+  }
+}

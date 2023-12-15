@@ -4,7 +4,8 @@
   "main": "dist/index.js",
   "devDependencies": {},
   "scripts": {
-    "build": "tsc index.ts --outDir dist",
+    "build": "tsc",
+    "test": "jest",
     "echo": "echo is-even"
   }
 }
