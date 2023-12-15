@@ -25,20 +25,9 @@ jobs:
         with:
           labels: draft
       
-
-  # remove-label:
-  #   runs-on: ubuntu-latest
-  #   needs: check
-  #   steps:
-  #     - uses: actions-ecosystem/action-remove-labels@v1
-  #       with:
-  #         labels: draft
-
-  # add-label:
-  #   runs-on: ubuntu-latest
-  #   needs: check
-  #   if: always() && needs.check.result == 'failure'
-  #   steps:
-  #     - uses: actions-ecosystem/action-add-labels@v1
-  #       with:
-  #         labels: draft
+  check-title1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: thehanimo/pr-title-checker@v1.4.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
